@@ -1,0 +1,139 @@
+/* Container */
+.edit-note-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .edit-note-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Title */
+  h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Form */
+  .edit-note-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #34495e;
+    text-align: left;
+  }
+  
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #bdc3c7;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+    outline: none;
+  }
+  
+  textarea {
+    height: 120px;
+    resize: none;
+  }
+  
+  /* Checkbox */
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #34495e;
+    cursor: pointer;
+  }
+  
+  /* Buttons */
+  .edit-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .save-btn,
+  .complete-btn,
+  .cancel-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .save-btn {
+    background: #2ecc71;
+    color: white;
+  }
+  
+  .save-btn:hover {
+    background: #27ae60;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+  }
+  
+  .complete-btn {
+    background: #f1c40f;
+    color: white;
+  }
+  
+  .complete-btn:hover {
+    background: #e67e22;
+    transform: scale(1.05);
+  }
+  
+  .cancel-btn {
+    background: #e74c3c;
+    color: white;
+  }
+  
+  .cancel-btn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .edit-note-container {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .edit-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  

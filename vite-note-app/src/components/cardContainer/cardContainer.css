@@ -1,0 +1,212 @@
+/* Container for the card list */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Individual task card */
+.task-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Clickable link styling */
+.task-header-link {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.task-header-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-title {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.task-date {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+/* Priority styles */
+.task-header.low {
+  border-left: 6px solid #f39c12;
+}
+
+.task-header.medium {
+  border-left: 6px solid #f1c40f;
+}
+
+.task-header.high {
+  border-left: 6px solid #e74c3c;
+}
+
+/* Task actions */
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.edit-icon {
+  color: #2ecc71;
+}
+
+.delete-icon {
+  color: #e74c3c;
+}
+
+.action-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Task category and description */
+.task-category {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin: 6px 0;
+  font-weight: 600;
+}
+
+.task-description {
+  font-size: 0.95rem;
+  color: #34495e;
+  margin: 10px 0;
+}
+
+/* Footer */
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/* Priority */
+.priority {
+  display: flex;
+  flex-direction: column;
+}
+
+.priority-label {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.priority-value {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.priority.low {
+  color: #f39c12;
+}
+
+.priority.medium {
+  color: #f1c40f;
+}
+
+.priority.high {
+  color: #e74c3c;
+}
+
+/* Task status */
+.task-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-icon {
+  font-size: 1.4rem;
+}
+
+.completed {
+  color: #2ecc71;
+}
+
+.pending {
+  color: #e74c3c;
+}
+
+.status-text {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+/* No tasks available message */
+.no-tasks {
+  font-size: 1.2rem;
+  color: #e74c3c;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .task-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-card {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+  }
+
+  .task-title {
+    font-size: 1.1rem;
+  }
+
+  .task-description {
+    font-size: 0.85rem;
+  }
+
+  .status-icon {
+    font-size: 1.2rem;
+  }
+}

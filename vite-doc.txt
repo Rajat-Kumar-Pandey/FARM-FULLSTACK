@@ -1,0 +1,154 @@
+Frontend development involves various components that help structure and build user interfaces. Here's a categorized list of different frontend components used in modern web development:
+
+### **1. Layout Components**
+   - **Navbar** – Top navigation bar for site-wide links.
+   - **Sidebar** – Vertical navigation menu.
+   - **Header** – Page or section heading.
+   - **Footer** – Bottom section with additional links and information.
+   - **Grid System** – Layout structure (e.g., Bootstrap Grid, CSS Grid).
+   - **Container** – Wrappers to maintain consistent spacing.
+   - **Card** – Box-style content blocks.
+
+### **2. Navigation Components**
+   - **Breadcrumbs** – Indicates the user’s location on the site.
+   - **Tabs** – Switch between sections without reloading.
+   - **Pagination** – Divides content into pages.
+   - **Dropdowns** – Expanding menu for navigation or selection.
+   - **Accordion** – Expand/collapse content sections.
+
+### **3. Form & Input Components**
+   - **Button** – Clickable elements for actions.
+   - **Text Field** – Input field for text data.
+   - **Checkbox** – Select/deselect options.
+   - **Radio Button** – Select one option from a group.
+   - **Dropdown/Select** – Choose from multiple options.
+   - **Date Picker** – Select date/time.
+   - **File Upload** – Upload files from the device.
+   - **Toggle Switch** – On/Off switch for settings.
+   - **Search Bar** – Input field for searching content.
+
+### **4. Display Components**
+   - **Modal/Popup** – Overlays for additional content.
+   - **Tooltip** – Hover-over informational text.
+   - **Toast Notification** – Small messages for alerts.
+   - **Badge** – Small counters or status indicators.
+   - **Carousel/Slider** – Rotating images or content.
+   - **Image Gallery** – Grid of images.
+   - **Progress Bar** – Indicates loading or progress.
+   - **Skeleton Loader** – Placeholder for loading content.
+
+### **5. Data Display Components**
+   - **Table** – Displays structured data.
+   - **List** – Ordered/unordered lists of items.
+   - **Card Grid** – Displays multiple items in a structured format.
+   - **Charts & Graphs** – Visual representation of data (e.g., bar chart, pie chart).
+
+### **6. Feedback Components**
+   - **Alerts** – Notifications for errors, warnings, success.
+   - **Snackbar** – Temporary notification at the bottom.
+   - **Loading Spinner** – Shows a process is ongoing.
+
+### **7. Media Components**
+   - **Image** – Displays images on the UI.
+   - **Video Player** – Embedded or hosted videos.
+   - **Audio Player** – Play audio files.
+   - **Icon** – Small visual representations of actions or objects.
+
+### **8. Authentication Components**
+   - **Login Form** – Input fields for username & password.
+   - **Signup Form** – Registration fields.
+   - **OTP Input** – Verification code entry.
+   - **Profile Avatar** – User profile picture.
+
+### **9. Utility Components**
+   - **Theme Switcher** – Toggle between dark/light modes.
+   - **Clipboard Copy Button** – Copies text to clipboard.
+   - **Hover Effects** – Interactive animations.
+   - **Back to Top Button** – Scrolls to the top of the page.
+
+Would you like suggestions on implementing these in React with Vite? 🚀
+
+
+
+
+
+
+
+
+POST - Create Todo
+jsx
+Copy
+Edit
+const createTodo = (newTask) => {
+  axios
+    .post('/api/todo', newTask) // Endpoint for creating a new todo
+    .then((response) => {
+      setTasks([...tasks, response.data]); // Add new task to the state
+    })
+    .catch((error) => {
+      console.error("Error creating todo:", error); // Handle errors
+    });
+};
+PUT - Update Todo
+jsx
+Copy
+Edit
+const updateTodo = (taskId, updatedTask) => {
+  axios
+    .put(`/api/todo/update/${taskId}`, updatedTask) // Endpoint for updating a todo
+    .then((response) => {
+      const updatedTasks = tasks.map((task) =>
+        task.task_id === taskId ? response.data : task
+      );
+      setTasks(updatedTasks); // Update task in the state
+    })
+    .catch((error) => {
+      console.error("Error updating todo:", error); // Handle errors
+    });
+};
+DELETE - Delete Todo
+jsx
+Copy
+Edit
+const deleteTodo = (taskId) => {
+  axios
+    .delete(`/api/todo/${taskId}`) // Endpoint for deleting a todo
+    .then(() => {
+      const filteredTasks = tasks.filter((task) => task.task_id !== taskId);
+      setTasks(filteredTasks); // Remove deleted task from the state
+    })
+    .catch((error) => {
+      console.error("Error deleting todo:", error); // Handle errors
+    });
+};
+4. Handling Task Filtering and Searching (Optional)
+If you want to integrate the GET /api/todo/filter and GET /api/todo/search endpoints into the app for filtering and searching tasks, you can update the useEffect to conditionally call these APIs based on user input. For example:
+
+Filter Tasks
+jsx
+Copy
+Edit
+const filterTasks = (priority) => {
+  axios
+    .get(`/api/todo/priority/${priority}`) // Fetch tasks by priority
+    .then((response) => {
+      setTasks(response.data); // Update tasks state
+    })
+    .catch((error) => {
+      console.error("Error filtering tasks:", error); // Handle errors
+    });
+};
+Search Tasks
+jsx
+Copy
+Edit
+const searchTasks = (query) => {
+  axios
+    .get(`/api/todo/search`, { params: { query } }) // Fetch tasks by search query
+    .then((response) => {
+      setTasks(response.data); // Update tasks state
+    })
+    .catch((error) => {
+      console.error("Error searching tasks:", error); // Handle errors
+    });
+};

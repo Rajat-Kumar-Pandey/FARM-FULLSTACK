@@ -1,0 +1,32 @@
+# Ignore environment variables
+.env
+# Backend dependencies
+backend/myenv/
+backend/__pycache__/
+backend/.venv/
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/.pytest_cache/
+backend/db.sqlite3
+
+# Python environment & cache files
+backend/.env
+backend/.envrc
+backend/.coverage
+backend/.vscode/
+backend/.idea/
+backend/.DS_Store
+
+# Ignore editor/system files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+Thumbs.db
+.DS_Store
+
+# Ignore frontend build files
+frontend/build/
+backend/static/
+backend/media/

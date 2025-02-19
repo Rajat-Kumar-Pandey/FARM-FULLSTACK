@@ -1,0 +1,44 @@
+/* App layout styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f4f7fb;
+  }
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .NavBar, .Filter, .CardContainer {
+    width: 100%;
+    max-width: 1200px; /* Set a max-width to avoid excessive stretching on large screens */
+  }
+  
+  .NavBar {
+    background-color: #4CAF50;
+    padding: 20px;
+  }
+  
+  .Filter {
+    margin: 20px 0;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .CardContainer {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
