@@ -1,14 +1,21 @@
-import motor.motor_asyncio
+import os
+from dotenv import load_dotenv # type: ignore
+import motor.motor_asyncio # type: ignore
 from urllib.parse import quote_plus  # Import for URL encoding
 
-# ✅ URL-encode username and password
-username = quote_plus("rajatkumarpandey333")
-password = quote_plus("Rajat_k.r_P@666")
+# ✅ Load environment variables from .env file
+load_dotenv()
 
-# ✅ MongoDB Connection
-MONGO_URI = f"mongodb+srv://{username}:{password}@mongodatabse.p8yvd.mongodb.net/TodoList?retryWrites=true&w=majority"
+# ✅ Get MongoDB credentials securely
+MONGO_USERNAME = quote_plus(os.getenv("MONGO_USERNAME"))
+MONGO_PASSWORD = quote_plus(os.getenv("MONGO_PASSWORD"))
+MONGO_CLUSTER = os.getenv("MONGO_CLUSTER")
+MONGO_DBNAME = os.getenv("MONGO_DBNAME")
+
+# ✅ Construct MongoDB URI
+MONGO_URI = f"mongodb+srv://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_CLUSTER}/{MONGO_DBNAME}?retryWrites=true&w=majority"
 
 # ✅ Create a MongoDB Client
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URI)
-database = client.TodoList  # Reference the database
-collection = database.todo  # Reference the collection
+database = client[MONGO_DBNAME]  # Reference the database  
+collection = database["todo"]  # Reference the collection
